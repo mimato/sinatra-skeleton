@@ -1,0 +1,10 @@
+development: &default
+  log_file: /opt/app/shared/log/production.log
+
+test:
+  <<: *default
+  database: app_test
+
+production:
+  <<: *default
+  database: app_prod

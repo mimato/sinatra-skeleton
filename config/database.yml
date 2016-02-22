@@ -1,0 +1,16 @@
+development: &default
+  adapter: mysql2
+  encoding: utf8
+  database: app
+  pool: 5
+  username: root
+  password: pagerduty
+  host: localhost
+
+test:
+  <<: *default
+  database: app_test
+
+production:
+  <<: *default
+  database: app_prod
