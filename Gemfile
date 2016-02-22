@@ -18,4 +18,5 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'rubocop', '~>0.37'
   gem 'guard-rubocop'
+  gem 'dotenv'
 end
