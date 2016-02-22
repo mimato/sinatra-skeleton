@@ -8,13 +8,17 @@ This is a hello world app in Sinatra with the basics for development:
  - Rake
 
 ## Development
+Set up for development using docker.
+
     ```
-    bundle install
-    bundle exec rake db:create
-    bundle exec guard
+    docker-compose build
+    docker-compose run web bundle exec rake db:create
+    docker-compose run web
     ```
 
-Guard will run rack, and your tests and RuboCop on each save.
+When you run ```docker-compose run web```, it will run guard, and guard will run rack, and your tests and RuboCop will run on each save.
+
+To run other arbitrary commands (rake, etc) just run ```docker-compose run web <command>```
 
 ## Configuration
 

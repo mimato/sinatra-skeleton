@@ -1,0 +1,18 @@
+version: '2'
+services:
+  db:
+    container_name: app_db
+    image: mysql:5.5
+    environment:
+      MYSQL_ROOT_PASSWORD: hGqn7MCRcUQYAW3JgGP2
+  web:
+    hostname: app
+    container_name: app
+    build: .
+    command: bundle exec guard
+    volumes:
+      - .:/app
+    ports:
+      - "9292:3000"
+    links:
+      - db

@@ -4,8 +4,8 @@ development: &default
   database: app
   pool: 5
   username: root
-  password: pagerduty
-  host: localhost
+  password: hGqn7MCRcUQYAW3JgGP2
+  host: db
 
 test:
   <<: *default
