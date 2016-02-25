@@ -3,8 +3,6 @@ development: &default
 
 test:
   <<: *default
-  database: app_test
 
 production:
   <<: *default
-  database: app_prod
