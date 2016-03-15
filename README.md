@@ -12,11 +12,11 @@ Set up for development using docker.
 
     ```
     docker-compose build
-    docker-compose run web bundle exec rake db:create
-    docker-compose run web
+    docker-compose run web bundle exec rake db:create db:migrate
+    docker-compose run --service-ports web
     ```
 
-When you run ```docker-compose run web```, it will run guard, and guard will run rack, and your tests and RuboCop will run on each save.
+When you run ```docker-compose run --service-ports web```, it will run guard, and guard will run rack, and your tests and RuboCop will run on each save.
 
 To run other arbitrary commands (rake, etc) just run ```docker-compose run web <command>```
 

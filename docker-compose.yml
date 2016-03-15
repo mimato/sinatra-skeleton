@@ -13,6 +13,6 @@ services:
     volumes:
       - .:/app
     ports:
-      - "9292:3000"
+      - "9292:9292"
     links:
       - db

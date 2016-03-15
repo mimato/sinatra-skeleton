@@ -7,6 +7,9 @@ gem 'sinatra-activerecord', '~> 2.0'
 gem 'mysql2', '~>0.4'
 gem 'yajl-ruby', require: 'yajl'
 gem 'sinatra-contrib'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'bcrypt'
 
 group :development, :test do
   gem 'guard'
