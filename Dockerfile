@@ -1,6 +1,7 @@
 FROM ruby:2.3.0
 EXPOSE 9292
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
+RUN gem install bundler
 RUN mkdir /app
 WORKDIR /app
 ADD Gemfile /app/Gemfile
