@@ -37,6 +37,7 @@ class App < Sinatra::Base
   end
 
   delete '/apikeys/:id' do |id|
+    authenticate!
     ApiKey.find(id).destroy
     redirect '/apikeys'
   end
