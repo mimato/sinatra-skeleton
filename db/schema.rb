@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -13,18 +12,17 @@
 
 ActiveRecord::Schema.define(version: 20160302151850) do
 
-  create_table "api_keys", force: :cascade do |t|
-    t.integer "user_id",       limit: 4,   null: false
-    t.string  "name",          limit: 255, null: false
-    t.string  "identifier",    limit: 255, null: false
-    t.string  "password_hash", limit: 255
+  create_table "api_keys", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id",       null: false
+    t.string  "name",          null: false
+    t.string  "identifier",    null: false
+    t.string  "password_hash"
+    t.index ["identifier"], name: "index_api_keys_on_identifier", using: :btree
   end
 
-  add_index "api_keys", ["identifier"], name: "index_api_keys_on_identifier", using: :btree
-
-  create_table "users", force: :cascade do |t|
-    t.string "name",  limit: 255, null: false
-    t.string "email", limit: 255, null: false
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name",  null: false
+    t.string "email", null: false
   end
 
 end

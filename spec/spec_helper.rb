@@ -13,7 +13,7 @@ set :run, false
 set :raise_errors, true
 set :logging, false
 
-FactoryGirl.definition_file_paths = %w(./spec/factories)
+FactoryGirl.definition_file_paths = %w[./spec/factories]
 FactoryGirl.find_definitions
 
 RSpec.configure do |config|
