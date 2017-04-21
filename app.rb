@@ -59,10 +59,10 @@ class App < Sinatra::Base
       if key
         @apikey = key
         unless key.password == request.env['HTTP_ACCESS_TOKEN']
-          halt 401, "Not Authorized\n"
+          respond_appropriately
         end
       else
-        halt 401, "Not Authorized\n" unless current_user
+        respond_appropriately unless current_user
       end
     end
 
@@ -75,4 +75,15 @@ class App < Sinatra::Base
   end
 
   set :views, File.join(File.dirname(__FILE__), 'views')
+
+  def respond_appropriately
+    respond_to do |f|
+      f.json { halt 401, "Not Authorized\n" }
+      f.html { erb :index, locals: { message: 'Unable to authenticate' } }
+    end
+  end
+
+  before do
+    logger.level = 0
+  end
 end

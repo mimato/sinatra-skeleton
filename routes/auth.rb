@@ -10,7 +10,7 @@ class App < Sinatra::Base
       user.name = request.env['omniauth.auth'][:info][:name]
     end
     @user = session['user']
-    redirect '/'
+    redirect request.env['omniauth.origin'] || '/'
   end
 
   get '/auth/failure' do

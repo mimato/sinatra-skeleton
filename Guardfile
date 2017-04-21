@@ -2,7 +2,7 @@ guard 'rack' do
   watch('Gemfile.lock')
   watch('app.rb')
   watch('config.ru')
-  watch(%r{^(config|lib|app|models|routes)/.*})
+  watch(%r{^(config|lib|app|models|routes|spec)/.*})
 end
 
 guard :rspec, cmd: 'bundle exec rspec' do
@@ -23,4 +23,5 @@ end
 guard :rubocop do
   watch(/.+\.rb$/)
   watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
+  ignore(/db/)
 end
